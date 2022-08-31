@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:travel_app/cubit/app_cubit.dart';
 import 'package:travel_app/misc/colors.dart';
 import 'package:travel_app/widgets/customButton.dart';
 import 'package:travel_app/widgets/text.dart';
@@ -59,7 +61,11 @@ class _WelcomPageState extends State<WelcomPage> {
                           ),
                         ),
                         const SizedBox(height: 40),
-                        CustomButton(width: 120)
+                        GestureDetector(
+                            onTap:
+                                BlocProvider.of<AppCubits>(context).getData(),
+                            child: Container(
+                                width: 200, child: CustomButton(width: 120)))
                       ],
                     ),
                     Column(
